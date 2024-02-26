@@ -27,7 +27,7 @@ let drowzee = {
 };
 
 let player = {
-  name: "Bjarne",
+  name: "Audun",
   image: "Images/pokemonTrainerIdle.png",
   pokemon: [],
 }
@@ -35,7 +35,7 @@ let player = {
 let app = document.getElementById("app");
 let possiblePokemon = [pikachu, bulbasaur, oranguru, drowzee];
 let randomPokemon = 0;
-let pokemonViewText = "";
+let pokemonViewHtml = "";
 
 updateView();
 
@@ -84,7 +84,7 @@ function showPokemon() {
   <div class="caughtContainer">
     <div class="caughtContainer">
       <h1>dine pokemon:</h1>
-      <div class="pokemonPartyContainer">${pokemonViewText}<div>
+      <div class="pokemonPartyContainer">${pokemonViewHtml}<div>
     </div>
   </div>
   <div class="buttonContainer">
@@ -94,9 +94,9 @@ function showPokemon() {
 }
 
 function showCaughtPokemon() {
-  pokemonViewText = "";
+  pokemonViewHtml = "";
   for (index = 0; index < player.pokemon.length; index++) {
-    pokemonViewText += /*HTML*/`
+    pokemonViewHtml += /*HTML*/`
     <div class="pokemonBoxDisplay">
       <div> <img class="partyImg" src="${player.pokemon[index].image}"/> ${player.pokemon[index].name}</div>
       <div> Lv.${player.pokemon[index].level} Hp.${player.pokemon[index].health}</div>
