@@ -88,15 +88,13 @@ function caughtPokemonView() {
 
 function showPokemon() {
   app.innerHTML = /*HTML*/ `
-  <div class="caughtContainer">
     <div class="caughtContainer">
       <h1>dine pokemon:</h1>
       <div class="pokemonPartyContainer">${showCaughtPokemon()}<div>
     </div>
-  </div>
-  <div class="buttonContainer">
-    <button onclick="updateView()">Tilbake</button>      
-  </div>
+    <div class="buttonContainer">
+      <button onclick="updateView()">Tilbake</button>      
+    </div>
   `;
 }
 
@@ -105,8 +103,8 @@ function showCaughtPokemon() {
   for (index = 0; index < player.pokemon.length; index++) {
     pokemonViewHtml += /*HTML*/`
     <div class="pokemonBoxDisplay">
-      <div> <img class="partyImg" src="${player.pokemon[index].image}"/> ${player.pokemon[index].name}</div>
-      <div> Lv.${player.pokemon[index].level} Hp.${player.pokemon[index].health}</div>
+      <div><img class="partyImg" src="${player.pokemon[index].image}"/>${player.pokemon[index].name}</div>
+      <div>Lv.${player.pokemon[index].level} Hp.${player.pokemon[index].health}</div>
     </div>  
     `;
   }
@@ -115,12 +113,12 @@ function showCaughtPokemon() {
 
 // Controller
 
-function catchPokemon() {
-  player.pokemon.push(randomPokemon);
-  caughtPokemonView();
-}
-
 function getRandomPokemon() {
   let randomNum = Math.floor(Math.random() * possiblePokemon.length);
   randomPokemon = possiblePokemon[randomNum];
+}
+
+function catchPokemon() {
+  player.pokemon.push(randomPokemon);
+  caughtPokemonView();
 }
